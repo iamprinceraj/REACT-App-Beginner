@@ -1,10 +1,7 @@
 function Sidebar({ selectedTab, setSelectedTab }) {
   return (
     <>
-      <div
-        className="d-flex flex-column flex-shrink-0 p-3  bg-dark sidebar"
-        style={{ width: "280px" }}
-      >
+      <div className="d-flex flex-column flex-shrink-0 p-3  bg-dark sidebar">
         <hr />
         <ul className="nav nav-pills flex-column mb-auto">
           <li className="nav-item" onClick={() => setSelectedTab("Home")}>

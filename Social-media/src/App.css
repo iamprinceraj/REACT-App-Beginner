@@ -1,58 +1,71 @@
-.app-container{
-    display: flex;
+.app-container {
+  display: flex;
 }
 
-.content{
-    width: 100%;
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
 }
 
-.sidebar{
-    min-height: 800px;
+.sidebar {
+  /* position: fixed; */
+  min-height: 800px;
+  width: 180px;
 }
 
-footer{
-    background-color: black;
-    
+footer {
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  
 }
 
-::placeholder{
-    color: white;
-
+::placeholder {
+  color: white;
 }
 
-#modalSignin{
-    height: 630px;
-    font-size: 20px;
-
+#modalSignin {
+  height: 630px;
+  font-size: 20px;
 }
 
-.tags{
-    margin-right: 0.5rem;
+.tags {
+  margin-right: 0.5rem;
 }
 
-
-.post-card{
-    width: 40%;
-    margin: 3rem;
+.post-card {
+  width: 30%;
+  margin: 2rem 1.3rem;
 }
 
-.alert-tab{
-    margin: 1rem;
+.alert-tab {
+  margin: 1rem;
 }
 
-
-.create-post{
-    width: 60%;
-    margin: 3% 5%;
-    /* display:flex */
-
+.create-post {
+  width: 60%;
+  margin: 3% 5%;
+  /* display:flex */
 }
 
-.post-box{
-    display: flex;
-    min-height: 450px;
+.post-box {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  /* min-height: 450px; */
 }
 
-.delete-button{
-    cursor: pointer;
+.delete-button {
+  cursor: pointer;
+}
+
+.Welcomemsg {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
 }

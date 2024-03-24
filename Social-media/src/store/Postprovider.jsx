@@ -2,6 +2,7 @@ import { createContext, useReducer } from "react";
 
 export const PostConstruct = createContext({
   postItems: [],
+  addInitialPosts: () => {},
   addPost: () => {},
   deletePost: () => {},
 }); // whatever the value we will pass here , that can be used as auto-complete variable and also can be used in other hooks
@@ -12,7 +13,10 @@ const reducer = (currenVal, action) => {
     newPostVal = currenVal.filter((post) => post.id !== action.payload.postId);
   } else if (action.type === "ADD_POST") {
     newPostVal = [action.payload, ...currenVal];
+  } else if (action.type === "ADD_INITIAL_POST") {
+    newPostVal = action.payload.posts;
   }
+
   return newPostVal;
 };
 
@@ -36,6 +40,15 @@ export const PostContext = (props) => {
     });
   };
 
+  const addInitialPosts = (posts) => {
+    dispatchPostIems({
+      type: "ADD_INITIAL_POST",
+      payload: {
+        posts: posts,
+      },
+    });
+  };
+
   const deletePost = (postId) => {
     dispatchPostIems({
       type: "DELETE_POST",
@@ -46,7 +59,9 @@ export const PostContext = (props) => {
   };
 
   return (
-    <PostConstruct.Provider value={{ postItems, addPost, deletePost }}>
+    <PostConstruct.Provider
+      value={{ postItems, addPost, deletePost, addInitialPosts }}
+    >
       {props.children}
     </PostConstruct.Provider>
   );
