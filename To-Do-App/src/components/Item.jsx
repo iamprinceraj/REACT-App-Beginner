@@ -1,7 +1,11 @@
 import { RiDeleteBin6Line } from "react-icons/ri";
 import styles from './Item.module.css'
+import { useContext } from "react";
+import { ItemContext } from "../store/ToDoItemStore";
 
-export function Item({ todoName, todoDate, onDelete }) {
+export function Item({ todoName, todoDate }) {
+  const {deleteItem} = useContext(ItemContext);
+
   return (
     <>
       <div className={"item"}>
@@ -16,7 +20,7 @@ export function Item({ todoName, todoDate, onDelete }) {
             <button
               type="button"
               className="btn btn-danger btn-sm btn-action"
-              onClick={() => onDelete(todoName)}
+              onClick={() => deleteItem(todoName)}
             >
               <RiDeleteBin6Line />
             </button>

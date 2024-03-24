@@ -1,63 +1,72 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { MdAssignmentAdd } from "react-icons/md";
+import { useContext } from "react";
+import { ItemContext } from "../store/ToDoItemStore";
 
-//        Main component
+//      Main component
 
-function TodoInput({ onAddItem }) {
-  const [todoName, SetTodoName] = useState("");
-  const [todoDate, setTodoDate] = useState("");
-  const [disablAdd, setDisable] = useState(true);
-  // const [defaultTask, setDefault] = useState("Daily");
+function TodoInput() {
+  // const [todoName , SetTodoName] = useState("")
+  // const [todoDate , setTodoDate] = useState("")
+  const {addNewItem} = useContext(ItemContext);
+  const {deleteItem} = useContext(ItemContext);
+  const todoNameVal = useRef();
+  const todoDateVal = useRef();
+
+  // const [disablAdd, setDisable] = useState(true);
 
   // Event calling function on change in todo *Name input field
 
-  const onNameChange = (event) => {
-    SetTodoName(event.target.value);
-    // console.log(event);
+  // const onNameChange = (event) => {
+  //   SetTodoName(event.target.value);
+    
 
-    if (event.target.value === "") {
-      setDisable(true);
-    } else {
-      setDisable(false);
-    }
-  };
+  //   // console.log(event);
+
+  //   // if (event.target.value === "") {
+  //   //   setDisable(true);
+  //   // } else {
+  //   //   setDisable(false);
+  //   // }
+  // };
 
   // Event calling function on change in todo *Date input field
 
-  const onDateChange = (event) => {
-    // console.log(setTodoDate(event));
-    setTodoDate(event.target.value);
+  // const onDateChange = (event) => {
+  //   setTodoDate(event.target.value);
+    
+  //   // console.log(`no.of changes :  ${inputVal.current}`);
+  //   // console.log(setTodoDate(event));
 
-    if (event.target.value.includes(todoDate) && todoName === "") {
-      setDisable(true);
-    }
+  //   // if (event.target.value.includes(todoDate) && todoName === "") {
+  //   //   setDisable(true);
+  //   // }
+  // };
 
-    // if (!event.target.value.includes(todoDate)) {
-    //   const newDefaultTask = defaultTask
-    //   setDefault(newDefaultTask);
-    // }
-  };
+  // Handle Add Functionality of to-do list
 
-  // Handle delete Functionality of to-do list
-
-  const handleAddItem = () => {
-    console.log(todoName, todoDate);
-    onAddItem(todoName, todoDate);
-    SetTodoName("");
-    setTodoDate("");
-    setDisable(true);
+  const handleAddItem = (event) => {
+    // console.log(todoName, todoDate);
+    event.preventDefault(); // preventing the default event of browser
+    const todoName = todoNameVal.current.value
+    const todoDate = todoDateVal.current.value
+    todoNameVal.current.value = ""
+    todoDateVal.current.value = ""
+    addNewItem(todoName, todoDate);
+    // setDisable(true);
   };
 
   return (
     <React.Fragment>
-      <div className="row items">
+      <form className="row items" onSubmit={handleAddItem}>
         <div className="col-4">
           <input
             type="text"
+            ref={todoNameVal}
             required
-            value={todoName}
+            // value={todoNameVal}
             placeholder="Enter your To-Do"
-            onChange={onNameChange}
+            // onChange={onNameChange}
           />
         </div>
         <div className="col-4">
@@ -65,23 +74,22 @@ function TodoInput({ onAddItem }) {
           <input
             type="date"
             required
-            onChange={onDateChange}
+            ref={todoDateVal}
             id="dueDAte"
-            value={todoDate}
+            // onChange={onDateChange}
+            // value={todoDate}
           />
         </div>
         <div className="col-2">
           <button
-            type="button"
             className="btn btn-success btn-action"
-            disabled={disablAdd}
-            onClick={handleAddItem}
-            onKeyDown={handleAddItem}
+            // disabled={disablAdd}
+            // onKeyDown={handleAddItem}
           >
             <MdAssignmentAdd />
           </button>
         </div>
-      </div>
+      </form>
     </React.Fragment>
   );
 }

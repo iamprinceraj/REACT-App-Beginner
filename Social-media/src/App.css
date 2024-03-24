@@ -1,0 +1,58 @@
+.app-container{
+    display: flex;
+}
+
+.content{
+    width: 100%;
+}
+
+.sidebar{
+    min-height: 800px;
+}
+
+footer{
+    background-color: black;
+    
+}
+
+::placeholder{
+    color: white;
+
+}
+
+#modalSignin{
+    height: 630px;
+    font-size: 20px;
+
+}
+
+.tags{
+    margin-right: 0.5rem;
+}
+
+
+.post-card{
+    width: 40%;
+    margin: 3rem;
+}
+
+.alert-tab{
+    margin: 1rem;
+}
+
+
+.create-post{
+    width: 60%;
+    margin: 3% 5%;
+    /* display:flex */
+
+}
+
+.post-box{
+    display: flex;
+    min-height: 450px;
+}
+
+.delete-button{
+    cursor: pointer;
+}
