@@ -9,7 +9,7 @@ Currently, two official plugins are available:
 
   <hr/>
 
-  To Run this React on your local machine , You have to run some comands in your terminal so that the react app will behave normally .
+  To Run this "React App" on your local machine , You have to run some comands in your terminal so that the react app will behave normally .
   1. npm i
   2. npm i bootstrap@5.2.3
   3. npm i react-icons --save
