@@ -1,4 +1,4 @@
-import { createContext, useReducer } from "react";
+import { createContext, useCallback, useReducer } from "react";
 
 export const PostConstruct = createContext({
   postItems: [],
@@ -49,14 +49,14 @@ export const PostContext = (props) => {
     });
   };
 
-  const deletePost = (postId) => {
+  const deletePost = useCallback((postId) => {   // useCallback used to enhance perforance , it prevents unneccessary rerenders ; and it keeps reference of the function .
     dispatchPostIems({
       type: "DELETE_POST",
       payload: {
         postId: postId,
       },
     });
-  };
+  }, [dispatchPostIems] );// we pass dependency array only on which rerender rlies on
 
   return (
     <PostConstruct.Provider
