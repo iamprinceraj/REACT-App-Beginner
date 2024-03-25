@@ -1,7 +1,7 @@
 
 export const Footer = () => {
   return (
-    <>
+    <div className="footer-parent">
       <footer className="py-3 ">
         <ul className="nav justify-content-center border-bottom pb-3 mb-3">
           <li className="nav-item ">
@@ -32,6 +32,6 @@ export const Footer = () => {
         </ul>
         <p className="text-center text-white link">© 2024 Company, Inc</p>
       </footer>
-    </>
+    </div>
   );
 };

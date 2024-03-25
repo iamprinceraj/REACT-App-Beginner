@@ -3,9 +3,10 @@
 }
 
 .content {
+  background-color: black;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   width: 100%;
 }
 
@@ -19,8 +20,8 @@ footer {
   background-color: black;
   display: flex;
   flex-direction: column;
-  
 }
+
 
 ::placeholder {
   color: white;
@@ -68,4 +69,30 @@ footer {
   justify-content: center;
   align-items: center;
   gap: 2rem;
+  margin-top: 2rem;
+}
+
+.msgbtn {
+  display: flex;
+  gap: 1rem;
+}
+
+.fetchpost-btn-text {
+  color: white;
+}
+
+/* .dlt-btn {
+  width: 30px;
+  height: 30px;
+} */
+
+
+.loading{
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+  width: 100%;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

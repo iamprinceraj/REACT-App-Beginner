@@ -30,7 +30,7 @@ export const PostContext = (props) => {
     dispatchPostIems({
       type: "ADD_POST",
       payload: {
-        id: Math.round(Math.random() * 100),
+        id: userId,
         title: title,
         body: content,
         reaction: reactions,
@@ -60,7 +60,12 @@ export const PostContext = (props) => {
 
   return (
     <PostConstruct.Provider
-      value={{ postItems, addPost, deletePost, addInitialPosts }}
+      value={{
+        postItems,
+        addPost,
+        deletePost,
+        addInitialPosts,
+      }}
     >
       {props.children}
     </PostConstruct.Provider>

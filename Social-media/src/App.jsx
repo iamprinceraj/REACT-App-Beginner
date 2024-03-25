@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 
 import "./App.css";
 import { CreatePost } from "./components/CreatePost";
@@ -11,6 +11,12 @@ import { PostContext } from "./store/Postprovider";
 
 function App() {
   const [currentTab, setCurrentTab] = useState("Home");
+
+  // const { postItems } = useContext(PostConstruct);
+
+  const hadleGotoCreatePost = (tabname) => {
+    setCurrentTab(tabname);
+  };
 
   const handleOnClick = (tabname) => {
     setCurrentTab(tabname);
@@ -36,7 +42,9 @@ function App() {
         <div className="content">
           <Header></Header>
           <div className="post-box">
-            {currentTab === "Home" && <PostList />}
+            {currentTab === "Home" && (
+              <PostList setSelectedTab={hadleGotoCreatePost} />
+            )}
             {currentTab === "Create Post" && <CreatePost />}
             {currentTab === "Dashboard" && <Dashboard />}
           </div>

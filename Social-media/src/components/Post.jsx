@@ -7,13 +7,16 @@ export const Post = ({ post }) => {
 
   return (
     <div className="card post-card">
-      <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger delete-button">
-        <RiChatDeleteFill onClick={() => deletePost(post.id)} key={post.id} />
+      <span
+        className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger delete-button dlt-btn"
+        onClick={() => deletePost(post.id)}
+      >
+        <RiChatDeleteFill key={post.id} />
         <span className="visually-hidden">unread messages</span>
       </span>
-      <img src="..." className="card-img-top" alt="..." />
+
       <div className="card-body">
-        <h5 className="card-title">{post.title}</h5>
+        <h3 className="card-title">{post.title}</h3>
         <p className="card-text">{post.body}</p>
         {post.tags.map((tag) => (
           <span key={tag} className="badge text-bg-primary tags">
