@@ -1,7 +1,10 @@
 import { useContext, useRef } from "react";
 import { PostConstruct } from "../store/Postprovider";
+import { useNavigate } from "react-router-dom";
 
 export const CreatePost = () => {
+  const navigate = useNavigate();
+
   const userIdElement = useRef();
   const titleElement = useRef();
   const contentElement = useRef();
@@ -27,6 +30,7 @@ export const CreatePost = () => {
     tagsElement.current.value = "";
 
     //  calling addPost function by firing onSubmit button
+    navigate("/");
 
     addPost(userId, title, content, reactions, tags);
   };
@@ -44,6 +48,7 @@ export const CreatePost = () => {
             className="form-control"
             placeholder="Enter user id..."
             id="userId"
+            required
           />
         </div>
 
@@ -66,6 +71,7 @@ export const CreatePost = () => {
           </label>
           <textarea
             type="text"
+            required
             ref={contentElement}
             rows="3"
             placeholder="Tell us more about it..."
@@ -84,6 +90,7 @@ export const CreatePost = () => {
             placeholder="How many people reacted to this post?"
             className="form-control"
             id="reaction"
+            required
           />
         </div>
 
